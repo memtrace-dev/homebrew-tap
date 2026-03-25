@@ -5,21 +5,21 @@
 class Memtrace < Formula
   desc "Local-first memory engine for AI coding agents"
   homepage "https://memtrace.sh"
-  version "1.5.2"
+  version "1.5.3"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/memtrace-dev/memtrace/releases/download/v1.5.2/memtrace_1.5.2_darwin_amd64.tar.gz"
-      sha256 "59762e42f0fe6cb5bd9c08d4731606bde584ee4b7186da99274d747751f049a7"
+      url "https://github.com/memtrace-dev/memtrace/releases/download/v1.5.3/memtrace_1.5.3_darwin_amd64.tar.gz"
+      sha256 "17fbdad3e60ea37a61c16b4d90ff92a3ee9eba306e11ece0749c01ca72198467"
 
       define_method(:install) do
         bin.install "memtrace"
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/memtrace-dev/memtrace/releases/download/v1.5.2/memtrace_1.5.2_darwin_arm64.tar.gz"
-      sha256 "7896ba8f32b421faecdd2d29a342f8d5be80d2c23dfd14f34ab9c40bd8d9f30c"
+      url "https://github.com/memtrace-dev/memtrace/releases/download/v1.5.3/memtrace_1.5.3_darwin_arm64.tar.gz"
+      sha256 "bb0268b6ad303a5d8e2e0ec1a66d2deaabe5b92f85988934674212840fc8b68a"
 
       define_method(:install) do
         bin.install "memtrace"
@@ -29,15 +29,15 @@ class Memtrace < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/memtrace-dev/memtrace/releases/download/v1.5.2/memtrace_1.5.2_linux_amd64.tar.gz"
-      sha256 "6701cb2461045827980f17d20f52584015cbbb59ba142da936ed2e2d9f3e11bd"
+      url "https://github.com/memtrace-dev/memtrace/releases/download/v1.5.3/memtrace_1.5.3_linux_amd64.tar.gz"
+      sha256 "8af8319aa11bcef7cb4747f03e01e4ee409d7c643d20a025b40a1b1547b6f5ca"
       define_method(:install) do
         bin.install "memtrace"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/memtrace-dev/memtrace/releases/download/v1.5.2/memtrace_1.5.2_linux_arm64.tar.gz"
-      sha256 "b8ff37eecec687090a44c448244fb5dc094ca8168901e4900cfff21a29325efd"
+      url "https://github.com/memtrace-dev/memtrace/releases/download/v1.5.3/memtrace_1.5.3_linux_arm64.tar.gz"
+      sha256 "bb374fc590bfd8223592cab7d315d80c1b5c63e9c7d64f02e453c1e2f369d0bf"
       define_method(:install) do
         bin.install "memtrace"
       end
