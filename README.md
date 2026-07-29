@@ -29,17 +29,21 @@ Your memory store is not touched by either command. varve reads a pre-rename
 store at `.memtrace/memtrace.db` in place and tells you so; `varve store move`
 relocates it to `.varve/varve.db` when you ask it to.
 
-## Cutover checklist — do this with the first `varve` release, not before
+## Cutover
 
-1. Confirm `Formula/varve.rb` exists (GoReleaser writes it during the release).
-2. Delete `Formula/memtrace.rb`.
-3. Add `formula_renames.json` at the tap root:
-   ```json
-   { "memtrace": "varve" }
-   ```
-   Homebrew then migrates `memtrace` users to `varve` on `brew upgrade`.
+After the first **stable** varve release publishes `Formula/varve.rb`:
 
-**The order matters.** Adding `formula_renames.json` before `varve.rb` exists
-makes `brew install varve-sh/tap/memtrace` resolve to a formula that isn't there,
-which breaks the one thing this tap currently does. So the rename map lands with
-the release, never ahead of it.
+```bash
+git pull
+./scripts/cutover.sh
+git push origin main
+```
+
+It removes `Formula/memtrace.rb` and adds `formula_renames.json`, so Homebrew
+migrates `memtrace` users to `varve` on `brew upgrade`.
+
+The script **refuses to run** until `Formula/varve.rb` exists, because that
+ordering is the part that is easy to get wrong: the rename map without its target
+makes `brew install varve-sh/tap/memtrace` resolve to a formula that is not
+there, breaking the only thing this tap currently does. Prereleases do not
+publish a formula (`skip_upload: auto`), so the trigger is a stable tag.
