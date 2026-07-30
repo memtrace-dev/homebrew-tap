@@ -5,21 +5,21 @@
 class Varve < Formula
   desc "Decision memory for AI coding agents — local-first, MCP-native, one binary"
   homepage "https://varve.sh"
-  version "2.0.1"
+  version "2.0.2"
   license "Apache-2.0"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/varve-sh/varve/releases/download/v2.0.1/varve_2.0.1_darwin_amd64.tar.gz"
-      sha256 "abb79bcb915358eec313066d2451ea28478b5ae7aa953bbb38740cf5ff672265"
+      url "https://github.com/varve-sh/varve/releases/download/v2.0.2/varve_2.0.2_darwin_amd64.tar.gz"
+      sha256 "de3b9ab035bf95afe51f07a44c0247fa89f16d42d59a0937d3a244509555ef9a"
 
       define_method(:install) do
         bin.install "varve"
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/varve-sh/varve/releases/download/v2.0.1/varve_2.0.1_darwin_arm64.tar.gz"
-      sha256 "a783e165d7c282baa07b59c8696cf51879cb09fb3a4ea75105178e1c10420f98"
+      url "https://github.com/varve-sh/varve/releases/download/v2.0.2/varve_2.0.2_darwin_arm64.tar.gz"
+      sha256 "1e09ebd1d27def698c3df81d7d109cec0b6edc603189524af8f778d3e2848cc2"
 
       define_method(:install) do
         bin.install "varve"
@@ -29,15 +29,15 @@ class Varve < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/varve-sh/varve/releases/download/v2.0.1/varve_2.0.1_linux_amd64.tar.gz"
-      sha256 "888d369a75a27557eff2784317c98b01c8a1f957515a1c0e2497a38a4dd978e5"
+      url "https://github.com/varve-sh/varve/releases/download/v2.0.2/varve_2.0.2_linux_amd64.tar.gz"
+      sha256 "d118be115fd96d01c9a240bdfdb6965dc075e2ad62cfcf9e1a9b365b7f11224f"
       define_method(:install) do
         bin.install "varve"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/varve-sh/varve/releases/download/v2.0.1/varve_2.0.1_linux_arm64.tar.gz"
-      sha256 "0aa4d6001366d46140d109dd31bdbe25e2662f2507a92be8f5eed40d90650d27"
+      url "https://github.com/varve-sh/varve/releases/download/v2.0.2/varve_2.0.2_linux_arm64.tar.gz"
+      sha256 "94ce714b81dcb9701bc6cd2d3826c049faeb8413bf8d08c775075033a69ff37a"
       define_method(:install) do
         bin.install "varve"
       end
